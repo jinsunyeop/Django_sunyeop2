@@ -1,8 +1,10 @@
 {% extends 'BASE.html' %}
+{% load bootstrap4 %}
+
 
 {% block content %}
 
-<div>
+<div style="max-width:50%; margin :4rem auto; text-align:center;">
     <div>
         <strong>
             <h2>LOGIN</h2>
@@ -12,8 +14,8 @@
     <div>
         <form action="{% url 'accountapp:login' %}"method="post">
             {% csrf_token %}
-            {{ form }}
-            <input type="submit" class="btn btn-dark">
+            {% bootstrap_form form %}
+            <input type="submit" class="btn btn-dark col-2 mt-4 rounded-zero">
         </form>
 
     </div>

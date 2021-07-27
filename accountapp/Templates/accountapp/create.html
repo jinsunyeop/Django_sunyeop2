@@ -1,12 +1,13 @@
 {% extends 'BASE.html' %}
+{% load bootstrap4 %}
 
 {% block content %}
-<div style="text-align : center">
+<div style="max-width:50%; margin :4rem auto; text-align:center;">
     <form action="{% url 'accountapp:create' %}" method="post">
         {% csrf_token %}
-        {{ form }}
+        {% bootstrap_form form %}
         <div style="margin-top:1rem;">
-            <input type="submit" class="btn btn-dark" value="회원 가입">
+            <input type="submit" class="btn btn-dark rounded-zero mt-3" value="회원 가입">
         <div>
     </form>
 </div>
