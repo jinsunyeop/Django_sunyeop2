@@ -1,0 +1,21 @@
+{% extends 'BASE.html' %}
+
+{% block content %}
+
+<div>
+    <div>
+        <strong>
+            <h2>LOGIN</h2>
+        </strong>
+    </div>
+
+    <div>
+        <form action="{% url 'accountapp:login' %}"method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" class="btn btn-dark">
+        </form>
+
+    </div>
+</div>
+{% endblock %}

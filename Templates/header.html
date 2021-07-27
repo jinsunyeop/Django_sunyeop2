@@ -1,15 +1,32 @@
 
-<div>
+<div style="text-align:center;">
     <div class="header_logo">
-    <h1>BASIC IS SIMPLE</h1>
+    <a href="/basics/hello" style="font-size:1.8rem; margin: 2rem; ">SUNYEOP BOY</a>
     </div>
-<hr>
+    <div style="font-size : 1rem; margin : 2rem ;" >
+        <strong>
+            {% if not user.is_authenticated %}
+            <a href="{% url 'accountapp:create' %}" style="margin:0.5rem;">
+                SIGN UP</a>
+            {% endif %}
 
-<div style="text-align : center; font-size : 2rem; margin :  1rem;">
-            <span style="margin : 2rem;">B</span>
-            <span style="margin : 2rem;">A</span>
-            <span style="margin : 2rem;">S</span>
-            <span style="margin : 2rem;">I</span>
-            <span style="margin : 2rem;">C</span>
-        </div>
+            {% if not user.is_authenticated %}
+            <a href="{% url 'accountapp:login' %}?next={{request.path}}" style="margin:0.5rem;">
+                LOGIN</a>
+            {% else %}
+            <a href="{% url 'accountapp:logout' %}?next={{request.path}}" style="margin:0.5rem;">
+                LOGOUT</a>
+            {% endif %}
+
+            <span style="margin:0.5rem;">BEST ARTICLES</span>
+            <span style="margin:0.5rem;">MyPAGE</span>
+            <span style="margin:0.5rem;">ORDER</span>
+
+            <form action="/basics/hello/" method="get" style="text-align:right;">
+             {% csrf_token %}
+            <input type="text" name="input">
+            <input type="submit" class="btn btn-dark " value="조회">
+            </form>
+        </strong>
+    </div>
 </div>
