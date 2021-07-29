@@ -19,7 +19,12 @@
             {% endif %}
 
             <span style="margin:0.5rem;">BEST ARTICLES</span>
-            <span style="margin:0.5rem;">MyPAGE</span>
+
+            {% if not user.is_authenticated %}
+            <a href="{% url 'accountapp:login' %}?next={{request.path}}" style="margin:0.5rem;">MyPAGE</a>
+            {% else %}
+            <a href="{% url 'accountapp:detail' pk=user.pk %}">MyPAGE</a>
+            {% endif %}
             <span style="margin:0.5rem;">ORDER</span>
 
             <form action="/basics/hello/" method="get" style="text-align:right;">

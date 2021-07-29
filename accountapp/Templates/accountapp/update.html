@@ -1,0 +1,17 @@
+{% extends 'BASE.html' %}
+{% load bootstrap4 %}
+{% block content %}
+
+<div>
+    <form action="{% url 'accountapp:update' pk=user.pk %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div>
+            <input type="submit" class="btn btn-dark" value="변경">
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}
