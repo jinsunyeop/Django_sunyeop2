@@ -1,0 +1,16 @@
+{% extends 'BASE.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div style="max-width:50%; margin :4rem auto; text-align:center;">
+    <form action="{% url 'profileapp:create' %}" method="post"
+          enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div style="margin-top:1rem;">
+            <input type="submit" class="btn btn-dark rounded-zero mt-3" value="프로필 만들기">
+        <div>
+    </form>
+</div>
+
+{% endblock %}
