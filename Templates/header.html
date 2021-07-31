@@ -3,10 +3,9 @@
     <div class="header_logo">
     <a href="/basics/hello" style="font-size:1.8rem;">SUNYEOP BOY</a>
     </div>
-    <div>
-        <div style="text-align:center;">
+    <div style="text-align:center; font-size :0.3rem;">
             {% if not user.is_authenticated %}
-            <ul><li><a href="{% url 'accountapp:create' %}" style="margin:0.5rem;">
+            <a href="{% url 'accountapp:create' %}" style="margin:0.5rem;">
                 SIGN UP</a>
             {% endif %}
 
@@ -28,6 +27,7 @@
             <span style="margin:0.5rem;">BEST ARTICLES</span>
             <span style="margin:0.5rem;">ORDER
             </span>
+
             <!--
             <input type="radio" value="black" onclick="
             document.querySelector('body').style.background = 'black';
@@ -35,7 +35,6 @@
             document.querySelector().style.color='white';">
             </li></ul>
             -->
-
         </div>
             <form action="/basics/hello/" method="get" style="text-align:right; margin-bottom:1rem;margin-right:1rem;">
              {% csrf_token %}

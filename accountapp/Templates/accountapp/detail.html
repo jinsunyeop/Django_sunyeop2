@@ -3,20 +3,29 @@
 {% block content %}
 
 <div>
-    <div style="text-align : left; margin :2rem;">
-        {% if target_user.profile %}
-        <h1>{{target_user.profile.nickname}}</h1>
-        {% else %}
-        <a href="{% url 'profileapp:create' %}">
-            <h1>프로필 만들기</h1>
-        </a>
-        {% endif %}
-        <div style="margin-top:1rem;">
-        {% if target_user == user %}
-        <a href="{% url 'accountapp:update' pk=target_user.pk %}">update</a>
-        <a href="{% url 'accountapp:delete' pk=target_user.pk %}">delete</a>
-        {% endif %}
-        </div>
+    <div style="text-align :center;">
+
+            {% if target_user.profile %}
+            <img src="{{ target_user.profile.image.url }}" alt=""
+            style="height:7rem; width : 7rem; border-radius:10rem;">
+                <h2>{{ target_user.profile.nickname }}</h2>
+                <p>{{ target_user.profile.message}}</p>
+                {% if target_user == user %}
+                    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                        프로필 변경</a>
+                    {% endif %}
+            {% else %}
+                <a href="{% url 'profileapp:create' %}">
+                    <h1>프로필 만들기</h1>
+                </a>
+            {% endif %}
+            <div style="margin :0.5rem; letter-spacing : 1pt;">
+                {% if target_user == user %}
+                <a href="{% url 'accountapp:update' pk=target_user.pk %}"
+                   style="margin-right:1rem;"> 회원변경</a>
+                <a href="{% url 'accountapp:delete' pk=target_user.pk %}">탈퇴</a>
+                {% endif %}
+            </div>
     </div>
 
 

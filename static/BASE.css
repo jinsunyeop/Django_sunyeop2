@@ -11,8 +11,8 @@ text-decoration:none !important;
 
 a:hover { text-decoration:none !important }
 
-ul {list-style:none;
-padding:1rem;
+ul { list-style:none ;
+padding:1rem ;
 }
 
 li {font-size : 4px;
@@ -23,3 +23,7 @@ li {font-size : 4px;
     form { display:none;}
 
 }
+
+
+
+
