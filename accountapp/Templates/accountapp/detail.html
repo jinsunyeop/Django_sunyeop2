@@ -11,6 +11,10 @@
                 <h2>{{ target_user.profile.nickname }}</h2>
                 <p>{{ target_user.profile.message}}</p>
                 {% if target_user == user %}
+                    <h4>
+                        <a href="{% url 'articleapp:create'%}" class="btn btn-dark
+                            col-3 mt-3">게시물 작성</a>
+                    </h4>
                     <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
                         프로필 변경</a>
                     {% endif %}
@@ -21,6 +25,7 @@
             {% endif %}
             <div style="margin :0.5rem; letter-spacing : 1pt;">
                 {% if target_user == user %}
+
                 <a href="{% url 'accountapp:update' pk=target_user.pk %}"
                    style="margin-right:1rem;"> 회원변경</a>
                 <a href="{% url 'accountapp:delete' pk=target_user.pk %}">탈퇴</a>

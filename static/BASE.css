@@ -1,15 +1,20 @@
 .header_logo {
   font-family: 'Zen Tokyo Zoo', cursive; text-align:center; margin-top:2rem;
+
+}
+
+.center { max-width:50%; margin :4rem auto; text-align:center;
 }
 
 
 
-a { color:black !important;
-text-decoration:none !important;
+
+a { color:white !important ;
+text-decoration:none !important ;
 }
 
 
-a:hover { text-decoration:none !important }
+a:hover { text-decoration:none !important; }
 
 ul { list-style:none ;
 padding:1rem ;

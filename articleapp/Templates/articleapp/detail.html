@@ -1,0 +1,26 @@
+{% extends 'BASE.html' %}
+
+{% block content %}
+
+<div>
+    <div class="center">
+        <h4> {{ target_article.title }}</h4>
+
+        <img src="{{ target_article.image.url }}" alt=""
+        style="width: 500px;  justify-content: center; align-items: center;
+        border-radius: 1.5rem;">
+
+        <p>
+            {{ target_article.content }}
+        </p>
+
+        <a href="{% url 'articleapp:update' pk =target_article.pk %}">
+            게시물 수정
+        </a>
+
+    </div>
+
+
+</div>
+
+{% endblock %}
