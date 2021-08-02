@@ -4,19 +4,30 @@
 
 <div>
     <div class="center">
-        <h4> {{ target_article.title }}</h4>
+             <h1> {{ target_article.title }}</h1>
+         <h4 style="font-family: 'Zen Tokyo Zoo', cursive;">photo by
+             <span style="font-size:70%; ">
+                 {{target_article.writer.profile.nickname}}
+             </span>
+         </h4>
 
         <img src="{{ target_article.image.url }}" alt=""
         style="width: 500px;  justify-content: center; align-items: center;
-        border-radius: 1.5rem;">
+        border-radius: 1.5rem; margin:1rem;">
 
         <p>
             {{ target_article.content }}
         </p>
-
-        <a href="{% url 'articleapp:update' pk =target_article.pk %}">
+        {% if target_article.writer == user %}
+        <a href="{% url 'articleapp:update' pk=target_article.pk %}"
+           class="btn btn-dark mt-3 col-3">
             게시물 수정
         </a>
+        <a href="{% url 'articleapp:delete' pk=target_article.pk %}"
+        class="btn btn-dark mt-3 col-3">
+            게시물 삭제
+        </a>
+        {% endif %}
 
     </div>
 

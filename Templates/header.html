@@ -24,15 +24,15 @@
             <a href="{% url 'accountapp:detail' pk=user.pk %}">MyPAGE
             </a>
             {% endif %}
-            <span style="margin:0.5rem;">BEST ARTICLES</span>
+            <a href="{% url 'articleapp:list' %}">BEST ARTICLES</a>
             <span style="margin:0.5rem;">ORDER
             </span>
 
         </div>
             <form action="/basics/hello/" method="get" style="text-align:right; margin-bottom:1rem;margin-right:1rem;">
-             {% csrf_token %}
-            <input type="text" name="input">
-            <input type="submit" class="btn btn-dark " value="조회">
+                 {% csrf_token %}
+                <input type="text" name="input">
+                <input type="submit" class="btn btn-dark " value="조회">
             </form>
 
             <!--

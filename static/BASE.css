@@ -4,9 +4,12 @@
 }
 
 .center { max-width:50%; margin :4rem auto; text-align:center;
+
 }
 
-
+.title_logo{
+  font-family :  'Zen Tokyo Zoo', cursive;
+}
 
 
 a { color:white !important ;
@@ -26,8 +29,10 @@ li {font-size : 4px;
 @media(max-width:700px){
     input { display:none;}
     form { display:none;}
-
 }
+
+
+
 
 
 

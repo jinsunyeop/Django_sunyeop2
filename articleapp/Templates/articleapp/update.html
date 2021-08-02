@@ -1,0 +1,24 @@
+{% extends 'BASE.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+
+<div class="center">
+    <div>
+        <h3>게시물 수정</h3>
+
+        <form action="{% url 'articleapp:update' pk=target_article.pk  %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form  form %}
+            <input type="submit" class="btn btn-dark rounded-zero mt-3" value="게시물 제출">
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+{% endblock %}
