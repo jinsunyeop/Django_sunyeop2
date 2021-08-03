@@ -2,8 +2,8 @@
 
 {% block content %}
 
-<div>
-    <div class="center">
+<div class="center">
+    <div>
              <h1> {{ target_article.title }}</h1>
          <h4 style="font-family: 'Zen Tokyo Zoo', cursive;">photo by
              <span style="font-size:70%; ">
@@ -30,8 +30,15 @@
         {% endif %}
 
     </div>
+    <div>
+    {% for comment in target_article.comment.all %}
+        {% include 'commentapp/detail.html' with comment=comment %}
+    {% endfor %}
 
 
+
+    {% include 'commentapp/create.html' with article=target_article %}
+    </div>
 </div>
 
 {% endblock %}

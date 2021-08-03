@@ -19,30 +19,31 @@
   border-radius: 1.5rem;
 }
 </style>
+<div>
+    <div class="container">
+            {% for article in article_list %}
 
-<div class="container">
-    {% for article in article_list %}
+            <a href="{% url 'articleapp:detail' pk=article.pk %}">
 
-    <a href="{% url 'articleapp:detail' pk=article.pk %}">
+                <div>
+                    <img src="{{ article.image.url }}" alt="">
+                </div>
 
-        <div>
-            <img src="{{ article.image.url }}" alt="">
-        </div>
-
-    </a>
-    {% endfor %}
-
-</div>
-
-<script src="{% static 'js/magicgrid.js' %}"> </script>
-
-    <div style="text-align:center;">
-    {% if not article_list %}
-        <a href="{% url 'articleapp:create'%}" class="btn btn-dark
-        col-3 mt-3">게시물 작성</a>
-    {% endif %}
+            </a>
+            {% endfor %}
     </div>
 
+    <script src="{% static 'js/magicgrid.js' %}"> </script>
+
+        <div style="text-align:center;">
+        {% if not article_list %}
+            <a href="{% url 'articleapp:create'%}" class="btn btn-dark
+            col-3 mt-3">게시물 작성</a>
+        {% endif %}
+        </div>
+
+    {% include 'snippets/pagination.html' with page_obj=page_obj %}
+</div>
 
 
 

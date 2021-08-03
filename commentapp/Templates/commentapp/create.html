@@ -1,0 +1,27 @@
+{% load bootstrap4 %}
+
+
+{% block content %}
+
+
+<div class="center">
+    <div>
+        <h4>댓글 작성!!</h4>
+    </div>
+    <div>
+        <form action="{% url 'commentapp:create'%}" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+
+            {% if user.is_authenticated %}
+            <input type="submit" class="btn btn-dark rounded-pill mt-3 col-6">
+            <input type="hidden" name="article_pk" value="{{ article.pk }}">
+            {% else %}
+            <h3 style="margin : 1rem;"> 로그인 시 작성 가능!</h3>
+            {% endif %}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
