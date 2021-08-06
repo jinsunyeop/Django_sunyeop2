@@ -3,30 +3,32 @@
 
 {% block content %}
 <style>
+
 .container div {
-  width: 360px;
-  height : 20%;
-  background-color: antiquewhite;
-  display: flex;
+  background-color: #909497;
+  display: block;
   justify-content: center;
   align-items: center;
   border-radius: 1.5rem;
+  margin:1.5rem;
 }
 
 .container img {
-  width:100%;
-  height:100%;
+  width:7rem;
+  height:7rem;
+  object-fit:cover;
   border-radius: 1.5rem;
 }
 </style>
 <div>
+    <hr>
     <div class="container">
-            {% for article in article_list %}
+            {% for project in project_list %}
 
-            <a href="{% url 'articleapp:detail' pk=article.pk %}">
-
-                <div>
-                    <img src="{{ article.image.url }}" alt="">
+            <a href="{% url 'projectapp:detail' pk=project.pk %}">
+                <div style="display:block; text-align:center;">
+                    <img src="{{ project.image.url }}" alt="">
+                <h5>{{ project.title | truncatechars:8}}</h5>
                 </div>
 
             </a>
@@ -36,9 +38,11 @@
     <script src="{% static 'js/magicgrid.js' %}"> </script>
 
         <div style="text-align:center;">
-            <a href="{% url 'articleapp:create'%}" class="btn btn-dark
-            col-2 mt-3">게시물 작성</a>
+            <a href="{% url 'projectapp:create'%}" class="btn btn-dark
+            col-2 mt-3">프로젝트 작성</a>
+
         </div>
+
 
     {% include 'snippets/pagination.html' with page_obj=page_obj %}
 </div>

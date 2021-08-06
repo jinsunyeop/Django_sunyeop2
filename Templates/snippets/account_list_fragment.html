@@ -1,7 +1,5 @@
-{% extends 'BASE.html' %}
 {% load static %}
 
-{% block content %}
 <style>
 .container div {
   width: 360px;
@@ -35,15 +33,6 @@
 
     <script src="{% static 'js/magicgrid.js' %}"> </script>
 
-        <div style="text-align:center;">
-            <a href="{% url 'articleapp:create'%}" class="btn btn-dark
-            col-2 mt-3">게시물 작성</a>
-        </div>
 
     {% include 'snippets/pagination.html' with page_obj=page_obj %}
 </div>
-
-
-
-
-{% endblock %}

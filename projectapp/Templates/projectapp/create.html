@@ -1,0 +1,18 @@
+{% extends 'BASE.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <div class="center mx-auto" >
+        <div>
+            <h3>프로젝트 생성</h3>
+        </div>
+        <form action="{% url 'projectapp:create' %}" method='post' enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
+
+        </form>
+    </div>
+
+{% endblock %}
