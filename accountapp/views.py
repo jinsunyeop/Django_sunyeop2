@@ -21,7 +21,7 @@ class AccountCreateView(CreateView):
 
     model = User
     form_class = UserCreationForm
-    success_url = reverse_lazy('basicapp:basic')
+    success_url = reverse_lazy('home:myhome')
     template_name = 'accountapp/create.html'
 
 
@@ -44,7 +44,7 @@ class AccountUpdateView(UpdateView):
     model = User
     form_class = UserUpdateForm
     context_object_name = 'target_user'
-    success_url = reverse_lazy('basicapp:basic')
+    success_url = reverse_lazy('home:myhome')
     template_name = 'accountapp/update.html'
 
 

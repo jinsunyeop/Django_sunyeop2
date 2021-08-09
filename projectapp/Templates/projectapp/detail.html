@@ -2,15 +2,31 @@
 
 {% block content %}
 
-<div>
+<div class="center">
     <div>
 
         <img src="{{ target_project.image.url }}" alt="" style="height : 12rem; width:12rem;
-         border-radius:20rem; margin-bottom:2rem; object-fit:cover;">
+         border-radius:20rem; margin-bottom:1rem; object-fit:cover;">
         <h2>{{ target_project.title }}</h2>
 
         <h5>{{ taget_project.description }}</h5>
 
+    </div>
+
+    <div style="margin:2rem;">
+        {% if  user.is_authenticated %}
+            {% if not subscribe %}
+                <a href="{% url 'subscribeapp:subscribe' %}?project_pk={{target_project.pk}}"
+                   class="btn btn-dark">
+                    구독
+                </a>
+            {% else %}
+                <a href="{% url 'subscribeapp:subscribe' %}?project_pk={{target_project.pk}}"
+                   class="btn btn-dark">
+                    구독취소
+                </a>
+            {% endif %}
+        {% endif %}
     </div>
 
     <div>

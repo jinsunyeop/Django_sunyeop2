@@ -19,11 +19,9 @@ text-decoration:none !important ;
 
 a:hover { text-decoration:none !important; }
 
-ul { list-style:none ;
-padding:1rem ;
-}
+ul {
 
-li {font-size : 4px;
+list-style : none;
 }
 
 @media(max-width:700px){

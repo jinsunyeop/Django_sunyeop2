@@ -15,9 +15,9 @@
         style="width: 500px;  justify-content: center; align-items: center;
         border-radius: 1.5rem; margin:1rem;">
 
-        <p>
-            {{ target_article.content }}
-        </p>
+        <div style="text-align:left;">
+            {{ target_article.content | safe }}
+        </div>
         {% if target_article.writer == user %}
         <a href="{% url 'articleapp:update' pk=target_article.pk %}"
            class="btn btn-dark mt-3 col-3">

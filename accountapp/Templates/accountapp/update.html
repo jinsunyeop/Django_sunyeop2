@@ -2,7 +2,7 @@
 {% load bootstrap4 %}
 {% block content %}
 
-<div>
+<div style="max-width:50%; margin :4rem auto; text-align:center;">
     <form action="{% url 'accountapp:update' pk=target_user.pk %}" method="post">
         {% csrf_token %}
         {% bootstrap_form form %}

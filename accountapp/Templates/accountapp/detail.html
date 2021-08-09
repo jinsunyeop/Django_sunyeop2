@@ -3,41 +3,55 @@
 {% block content %}
 
 <div>
-    <div style="text-align :center;">
+    <div style= "text-align:center;">
 
             {% if target_user.profile %}
-            <img src="{{ target_user.profile.image.url }}" alt=""
-            style="height:7rem; width : 7rem; border-radius:10rem;">
-                <h2>{{ target_user.profile.nickname }}</h2>
-                <p>{{ target_user.profile.message}}</p>
-                {% if target_user == user %}
-                    <h4>
-                        <a href="{% url 'articleapp:create'%}" class="btn btn-dark
-                            col-3 mt-3">게시물 작성</a>
-                    </h4>
-                    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                        프로필 변경</a>
+                <div>
+                <img src="{{ target_user.profile.image.url }}" alt=""
+                    style="height:7rem; width : 7rem; border-radius:10rem; margin:1rem; ">
+                     {% if target_user == user %}
+                        <a class ="material-icons"
+                           style = "position:relative; top:3.5rem; border-radius:10rem; padding:0.1rem; "
+                           href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                        edit</a>
                     {% endif %}
+                </div>
+
+                <h2>
+                    {{ target_user.profile.nickname }}
+
+
+                    {% if target_user == user %}
+                        <a  class ="material-icons"
+                            style="position:relative; top:0.3rem;"
+                            href="{% url 'accountapp:update' pk=target_user.pk %}">manage_accounts</a>
+                        <a class ="material-icons"
+                           style="position:relative; top:0.3rem;"
+                           href="{% url 'accountapp:delete' pk=target_user.pk %}">no_accounts</a>
+                    {% endif %}
+                </h2>
+                <p>{{ target_user.profile.message}}</p>
+
             {% else %}
-                <a href="{% url 'profileapp:create' %}">
+                <a href="{% url 'profileapp:create' %}"style="margin-right:1rem;">
                     <h1>프로필 만들기</h1>
                 </a>
             {% endif %}
-            <div style="margin :0.5rem; letter-spacing : 1pt;">
-                {% if target_user == user %}
 
-                <a href="{% url 'accountapp:update' pk=target_user.pk %}"
-                   style="margin-right:1rem;"> 회원변경</a>
-                <a href="{% url 'accountapp:delete' pk=target_user.pk %}">탈퇴</a>
-                {% endif %}
-            </div>
+
+
+
+        {% if target_user == user %}
+        <h3><a href="{% url 'articleapp:create'%}" class="btn btn-dark mx-auto">게시물 작성</a></h3>
+        {% endif %}
+
+
+
     </div>
-            <div>
 
-              {% include 'snippets/account_list_fragment.html' with article_list=object_list %}
-
-
-            </div>
+    <div style="border-top:1.4px solid gray; margin-top:1rem;">
+         {% include 'snippets/account_list_fragment.html' with article_list=object_list %}
+    </div>
 
 
 </div>
