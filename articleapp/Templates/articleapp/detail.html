@@ -10,6 +10,14 @@
                  {{target_article.writer.profile.nickname}}
              </span>
          </h4>
+        <div style="margin:0.5rem;">
+            <a href="{% url 'likeapp:article_like' pk=target_article.pk %}">
+                <i class="material-icons">favorite</i>
+                <span>{{ target_article.like }}</span>
+            </a>
+
+        </div>
+
 
         <img src="{{ target_article.image.url }}" alt=""
         style="width: 500px;  justify-content: center; align-items: center;

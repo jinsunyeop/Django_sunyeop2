@@ -6,14 +6,25 @@
 
 <body style="background-color:#909497;color:white; font-family:'NanumBarunPenB';">
 
-{% include 'header.html' %}
+    {% include 'header.html' %}
 
-{% block content %}
+    {% for message in messages %}
+        <div class="center">
+            <div class="btn btn-{{ message.tags }} rounded-pill my-3">
 
-{% endblock %}
+                {{ message }}
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+    {% block content %}
+
+    {% endblock %}
 
 
-{% include 'footer.html' %}
+    {% include 'footer.html' %}
 </body>
 
 </html>
